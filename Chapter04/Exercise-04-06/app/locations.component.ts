@@ -21,6 +21,7 @@ import {LocationsApiService} from './locations-api.service'
   `]
 })
 export class LocationsComponent {
+
   isInAddMode : boolean;
   editMode : boolean;
   deleteMode : boolean;

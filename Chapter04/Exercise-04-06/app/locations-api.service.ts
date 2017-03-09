@@ -5,8 +5,8 @@ import 'rxjs/add/operator/toPromise';
 import {Location} from './location';
 
 const URL = 'http://unraveling-ng.azurewebsites.net/api/dive/location/';
-const USER_ID = 'b3f15a1b-8d0e-4e80-8b96-c36e66547481';
-const USER_SECRET = 'd6deac91eba6453bb6ad78c61e8052b616d2d830db20463ea6b4d8be918e29df6a0a4a1ebdab46eb9cdd6b7ab319QQQQ'
+const USER_ID = '3ef7c9b4-94b5-4601-a021-27c9e8033b0c';
+const USER_SECRET = '5e7ee2b0c7e8403b97a7e292a47bdf17964a899e36344d72bf2c4b8e6b423b31e78d5b8e65da4dbfbccd031cc7a9e0a2';
 
 @Injectable()
 export class LocationsApiService {

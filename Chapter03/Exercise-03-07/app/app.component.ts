@@ -5,10 +5,10 @@ import {Component} from '@angular/core';
   templateUrl: 'app/app.template.html'
 })
 export class AppComponent {
-  siteId: number;
-  currentView = 'list';
+  // siteId: number;
+  // currentView = 'list';
 
-  navigateTo(view: string) {
-    this.currentView = view;
-  }
+  // navigateTo(view: string) {
+  //   this.currentView = view;
+  // }
 }

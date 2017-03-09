@@ -1,6 +1,7 @@
-import {Component, Output, EventEmitter} from '@angular/core';
-import {DiveSite} from './dive-site';
-import {SiteManagementService} from './site-management.service'
+import { Component} from '@angular/core';
+import { DiveSite } from './dive-site';
+import { SiteManagementService } from './site-management.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'site-list-view',
@@ -21,23 +22,13 @@ import {SiteManagementService} from './site-management.service'
 })
 export class SiteListComponent {
   sites: DiveSite[];
-  @Output() onAdd = new EventEmitter();
-  @Output() onEdit = new EventEmitter<number>();
-  @Output() onDelete = new EventEmitter<number>();
 
-  constructor(private siteService: SiteManagementService) {
+  constructor(private siteService: SiteManagementService, private router: Router) {
     this.sites = siteService.getAllSites();
   }
 
-  add() {
-    this.onAdd.emit(null);
-  }
-
   edit(siteId: number) {
-    this.onEdit.emit(siteId);
+    this.router.navigate(['/edit', siteId]);
   }
 
-  delete(siteId: number) {
-    this.onDelete.emit(siteId);
-  }
 }

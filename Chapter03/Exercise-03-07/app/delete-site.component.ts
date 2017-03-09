@@ -1,30 +1,29 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {OnChanges} from '@angular/core';
-import {SiteManagementService} from './site-management.service'
+import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { SiteManagementService } from './site-management.service'
 
 @Component({
   selector: 'delete-site-view',
   templateUrl: 'app/delete-site.template.html'
 })
-export class DeleteSiteComponent implements OnChanges{
-  @Input() siteId: number;
-  @Output() onClosed = new EventEmitter();
+export class DeleteSiteComponent {
+  siteId: number;
   siteName: string;
+  private parSub: any;
 
-  constructor(private siteService: SiteManagementService) {
-  }
-
-  ngOnChanges() {
+  constructor(private siteService: SiteManagementService,
+    private route: ActivatedRoute,
+    private router: Router) {
+    this.siteId = this.route.snapshot.params['id'];
     this.siteName = this.siteService
       .getSiteById(this.siteId).name;
   }
 
+
   delete() {
     this.siteService.deleteSite(this.siteId);
-    this.onClosed.emit(null);
+    this.router.navigate(['/list']);
   }
 
-  cancel() {
-    this.onClosed.emit(null);
-  }
 }
